@@ -1,0 +1,158 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "tradealerts.azurewebsites.net",
+    "version": "1.0.0"
+  },
+  "host": "tradealerts.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/api/PostOpeningRanges": {
+      "post": {
+        "operationId": "PostEntireOpeningRanges",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message with success"
+          }
+        },
+        "security": [
+          {
+            "apikeyQuery": []
+          }
+        ]
+      }
+    },
+    "/api/HttpPOST-CRUD-CSharp1": {
+      "post": {
+        "operationId": "PostValues",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "symbol": {
+                  "description": "The Ticker",
+                  "type": "string"
+                },
+                "date": {
+                  "description": "The DateTime",
+                  "type": "string"
+                },
+                "low": {
+                  "description": "The Range Low",
+                  "type": "number"
+                },
+                "high": {
+                  "description": "The Range High",
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message with success of insert"
+          }
+        },
+        "security": [
+          {
+            "apikeyQuery": []
+          }
+        ]
+      }
+    },
+    "/api/TurbineRepair": {
+      "post": {
+        "operationId": "CalculateCosts",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hours": {
+                  "description": "The amount of effort in hours required to conduct repair",
+                  "type": "number"
+                },
+                "capacity": {
+                  "description": "The max output of a turbine in kilowatts",
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message with cost and revenue numbers",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "revenueOpportunity": {
+                  "type": "string"
+                },
+                "costToFix": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikeyQuery": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "securityDefinitions": {
+    "apikeyQuery": {
+      "type": "apiKey",
+      "name": "code",
+      "in": "query"
+    }
+  }
+}
